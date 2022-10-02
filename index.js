@@ -1,6 +1,7 @@
 // Bài tập JS buổi 4
 console.log("Bài tập JS buổi 4:");
 
+// ==========================================================================================
 // Bài 1
 console.log("Bài 1:");
 var n1 = 8;
@@ -29,6 +30,7 @@ if (n1 >= n2) {
   }
 }
 
+// ==========================================================================================
 // Bài 2
 console.log("Bài 2:");
 var member = "M";
@@ -50,6 +52,7 @@ switch (member) {
     console.log("Chào Bạn");
 }
 
+// ==========================================================================================
 // Bài 3
 console.log("Bài 3:");
 var x1 = 5;
@@ -70,11 +73,12 @@ if (x3 % 2 === 0) {
 odd = 3 - even;
 console.log("Có", even, "số chẵn và", odd, "số lẻ");
 
+// ==========================================================================================
 // Bài 4
 console.log("Bài 4:");
-var e1 = 4;
-var e2 = 2;
-var e3 = 9;
+var e1 = 3;
+var e2 = 4;
+var e3 = 5;
 
 if (e1 + e2 > e3 && e1 + e3 > e2 && e2 + e3 > e1) {
   if (e1 === e2 && e2 === e3) {
@@ -114,12 +118,113 @@ if (e1 + e2 > e3 && e1 + e3 > e2 && e2 + e3 > e1) {
   console.log("Độ dài các cạnh không hợp lệ");
 }
 
+// ==========================================================================================
 // Bài tập thêm JS buổi 4
 console.log("\n\n\nBài tập thêm JS buổi 4:");
 
+// ==========================================================================================
 // Bài 1
 console.log("Bài 1:");
+// Theo đề bài giả sử nhập đúng dữ liệu
+var dd = 1;
+var mm = 3;
+var yy = 2020;
+var lastDD = dd;
+var nextDD = dd;
+var lastMM = mm;
+var nextMM = mm;
+var lastYY = yy;
+var nextYY = yy;
 
+if (dd === 1) {
+  switch (mm) {
+    case 5:
+    case 7:
+    case 10:
+    case 12:
+      lastDD = 30;
+      nextDD = 2;
+      lastMM = mm - 1;
+      break;
+    case 2:
+    case 4:
+    case 6:
+    case 8:
+    case 9:
+    case 11:
+      lastDD = 31;
+      nextDD = 2;
+      lastMM = mm - 1;
+      break;
+    case 1:
+      lastDD = 31;
+      nextDD = 2;
+      lastMM = 12;
+      lastYY = yy - 1;
+      break;
+  }
+} else if (dd === 31) {
+  switch (mm) {
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+      nextDD = 1;
+      lastDD = 30;
+      nextMM = mm + 1;
+      break;
+    case 12:
+      nextDD = 1;
+      lastDD = 30;
+      nextMM = 1;
+      nextYY = yy + 1;
+      break;
+  }
+} else if (dd === 30) {
+  switch (mm) {
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+      nextDD = 1;
+      lastDD = 29;
+      nextMM = mm + 1;
+      break;
+  }
+} else {
+  nextDD = dd + 1;
+  lastDD = dd - 1;
+}
+
+if ((yy % 4 === 0 && yy % 100 !== 0) || yy % 400 === 0) {
+  if (dd === 1 && mm === 3) {
+    lastDD = 29;
+    nextDD = 2;
+    lastMM = 2;
+  }
+  if (dd === 29 && mm === 2) {
+    lastDD = 28;
+    nextDD = 1;
+    nextMM = 3;
+  }
+} else {
+  if (dd === 1 && mm === 3) {
+    lastDD = 28;
+    nextDD = 2;
+    lastMM = 2;
+  }
+  if (dd === 28 && mm === 2) {
+    lastDD = 27;
+    nextDD = 1;
+    nextMM = 3;
+  }
+}
+console.log("Ngày hôm qua của ngày", dd, mm, yy, "là:", lastDD, lastMM, lastYY);
+console.log("Ngày mai của ngày", dd, mm, yy, "là:", nextDD, nextMM, nextYY);
+
+// ==========================================================================================
 // Bài 2
 console.log("Bài 2:");
 var month = 2;
@@ -152,6 +257,7 @@ switch (month) {
     console.log("Tháng không hợp lệ");
 }
 
+// ==========================================================================================
 // Bài 3
 console.log("Bài 3:");
 var number = 115;
@@ -247,26 +353,27 @@ switch (number1) {
     break;
 }
 
+// ==========================================================================================
 // Bài 4
 console.log("Bài 4:");
 var nameA = "Nguyễn Văn A";
 var xA = 4;
-var yA = 7;
+var yA = 8;
 var nameB = "Trần Văn B";
 var xB = 5;
-var yB = 3;
+var yB = 2;
 var nameC = "Phạm Văn C";
-var xC = 8;
-var yC = 5;
+var xC = 3;
+var yC = 7;
 var xSchool = 9;
 var ySchool = 6;
 
-var dA = Math.sqrt((9 - 4) * (9 - 4) + (6 - 7) * (6 - 7));
-var dB = Math.sqrt((9 - 5) * (9 - 5) + (6 - 3) * (6 - 3));
-var dC = Math.sqrt((9 - 8) * (9 - 8) + (6 - 5) * (6 - 5));
-console.log("Đoạn đường từ nhà", nameA, "đến trường:", dA);
-console.log("Đoạn đường từ nhà", nameB, "đến trường:", dB);
-console.log("Đoạn đường từ nhà", nameC, "đến trường:", dC);
+var dA = Math.sqrt((xSchool - xA) * (xSchool - xA) + (ySchool - yA) * (ySchool - yA));
+var dB = Math.sqrt((xSchool - xB) * (xSchool - xB) + (ySchool - yB) * (ySchool - yB));
+var dC = Math.sqrt((xSchool - xC) * (xSchool - xC) + (ySchool - yC) * (ySchool - yC));
+console.log("Đoạn đường từ nhà", nameA, "đến trường:", Math.round(dA * 100) / 100);
+console.log("Đoạn đường từ nhà", nameB, "đến trường:", Math.round(dB * 100) / 100);
+console.log("Đoạn đường từ nhà", nameC, "đến trường:", Math.round(dC * 100) / 100);
 
 if (dA === dB || dA === dC || dB === dC) {
   console.log("Không có ai xa trường nhất");
